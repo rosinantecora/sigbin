@@ -1,0 +1,73 @@
+#include<iostream>
+using namespace std;
+
+class Shapes{
+	protected:
+		double length = 0, height = 0, base = 0;
+		double radius = base/2;
+		public:
+		void getDimension();
+};
+
+void Shapes::getDimension(){
+	if(length > 0){
+		cout << "The length is " << length << "\n";
+	}
+	if(height > 0){
+		cout << "The height is " << height << "\n";
+	}
+	if(base > 0){
+		cout << "The base is " << base << "\n";
+	}
+	if(radius > 0){
+		cout << "The radius is " << radius << "\n";
+	}
+};
+
+class Pyramid : public Shapes{
+	public:
+		Pyramid(double b, double h);
+		void Pyramid_Vol();
+};
+
+Pyramid::Pyramid(double b, double h){
+		base = b;
+		height = h;
+};
+
+void Pyramid::Pyramid_Vol(){
+	double vol = 0;
+	vol = (base * height)/3;
+	cout << "The volume of Pyramid is " << vol << "\n";
+};
+
+class Cone : public Shapes{
+	public:
+		Cone(double r, double h);
+		void Cone_Vol();
+	
+};	
+
+Cone::Cone(double r, double h){
+	radius = r;
+	height = h;
+};
+
+void Cone::Cone_Vol(){
+	double Vol = 0;
+	Vol = 3.1415926*(radius*radius*height)/3;
+	cout << "The volume of Cone is " << Vol << "\n";
+};
+
+int main(){
+	
+	/*Pyramid smallPyra(2, 4);
+	smallPyra.getDimension();
+	smallPyra.Pyramid_Vol();
+	*/
+	Cone bigCone(5, 20);
+	bigCone.getDimension();
+	bigCone.Cone_Vol();
+	
+	return 0;
+}
